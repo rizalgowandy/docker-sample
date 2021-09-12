@@ -24,3 +24,4 @@ services:
     entrypoint:
       - memcached
       - -m 64
+    restart: unless-stopped

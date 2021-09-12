@@ -17,3 +17,9 @@ Messaging system with a publisher and a subscriber.
 
 - [NATS](https://nats.io/)
 - [NSQ](https://nsq.io/)
+
+### Email
+
+Email testing tool for developers.
+
+- [MailHog](https://github.com/mailhog/MailHog)
