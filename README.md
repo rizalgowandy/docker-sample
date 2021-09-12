@@ -23,3 +23,4 @@ Messaging system with a publisher and a subscriber.
 Email testing tool for developers.
 
 - [MailHog](https://github.com/mailhog/MailHog)
+- [MailCatcher](https://github.com/dockage/mailcatcher)
