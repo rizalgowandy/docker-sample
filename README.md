@@ -7,6 +7,7 @@ Show how to work with a wide variety of technologies in local environment using 
 Database with built-in migration and seeding.
 
 - [Amazon DynamoDB](https://aws.amazon.com/dynamodb/)
+- [Amazon ElastiCache](https://aws.amazon.com/elasticache/)
 - [PostgreSQL](https://www.postgresql.org/)
 - [Redis](https://redis.io/)
 
@@ -14,5 +15,5 @@ Database with built-in migration and seeding.
 
 Messaging system with a publisher and a subscriber.
 
-- [NSQ](https://nsq.io/)
 - [NATS](https://nats.io/)
+- [NSQ](https://nsq.io/)

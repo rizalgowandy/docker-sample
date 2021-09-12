@@ -1,0 +1,37 @@
+version: "3"
+services:
+  nsqlookupd:
+    image: nsqio/nsq:v1.2.0
+    container_name: app-nsqlookupd
+    command: /nsqlookupd
+    ports:
+      - "4160:4160"
+      - "4161:4161"
+    restart: unless-stopped
+
+  nsqd:
+    image: nsqio/nsq:v1.2.0
+    container_name: app-nsqd
+    command: /nsqd --broadcast-address=nsqd --lookupd-tcp-address=nsqlookupd:4160 --data-path=/var/lib/nsqd/data
+    volumes:
+      - app_nsqd:/var/lib/nsqd/data
+    depends_on:
+      - nsqlookupd
+    ports:
+      - "4150:4150"
+      - "4151:4151"
+    restart: unless-stopped
+
+  nsqadmin:
+    image: nsqio/nsq:v1.2.0
+    container_name: app-nsqadmin
+    command: /nsqadmin --lookupd-http-address=nsqlookupd:4161
+    depends_on:
+      - nsqlookupd
+    ports:
+      - "4171:4171"
+    restart: unless-stopped
+
+volumes:
+  app_nsqd:
+    driver: local
