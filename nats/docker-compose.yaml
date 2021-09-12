@@ -1,0 +1,15 @@
+version: "3"
+services:
+  nats:
+    image: nats:2.5.0
+    container_name: app-nats
+    ports:
+      - "4222:4222"
+      - "8222:8222"
+
+  nats_streaming:
+    image: nats-streaming:0.22.1
+    container_name: app-nats_streaming
+    ports:
+      - "4223:4222"
+      - "8223:8222"
