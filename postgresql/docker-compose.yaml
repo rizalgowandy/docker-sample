@@ -1,0 +1,20 @@
+version: "3"
+services:
+  postgres:
+    image: postgres:10.6
+    container_name: app-postgres
+    volumes:
+      - ./schema:/docker-entrypoint-initdb.d
+      - app_postgres:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=unicorn_user
+      - POSTGRES_PASSWORD=magical_password
+      - POSTGRES_DB=product
+    tty: true
+    restart: unless-stopped
+
+volumes:
+  app_postgres:
+    driver: local
