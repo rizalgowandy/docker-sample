@@ -1,13 +1,13 @@
 version: "3"
 services:
-  redis:
+  redis: # Mimic ElastiCache Redis
     image: redis:6.2.1
     container_name: app-redis
     ports:
       - "6379:6379"
     restart: unless-stopped
 
-  redis_cluster:
+  redis_cluster: # Mimic ElastiCache Redis with Cluster Mode On
     image: grokzen/redis-cluster:5.0.12
     container_name: app-redis_cluster
     environment:
@@ -15,3 +15,12 @@ services:
     ports:
       - "7000-7005:7000-7005"
     restart: unless-stopped
+
+  memcached: # Mimic ElastiCache Memcached
+    image: memcached:1.6.10
+    container_name: app-memcached
+    ports:
+      - '11211:11211'
+    entrypoint:
+      - memcached
+      - -m 64
