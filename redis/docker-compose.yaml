@@ -1,0 +1,17 @@
+version: "3"
+services:
+  redis:
+    image: redis:6.2.1
+    container_name: app-redis
+    ports:
+      - "6379:6379"
+    restart: unless-stopped
+
+  redis_cluster: # Mimic ElastiCache with Redis Cluster Mode On
+    image: grokzen/redis-cluster:5.0.12
+    container_name: app-redis_cluster
+    environment:
+      - IP=0.0.0.0
+    ports:
+      - "7000-7005:7000-7005"
+    restart: unless-stopped
