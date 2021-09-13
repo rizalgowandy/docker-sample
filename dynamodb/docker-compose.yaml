@@ -27,7 +27,7 @@ services:
     image: banst/awscli:1.18.76
     container_name: app-dynamodb_migrator
     working_dir: /home/dynamodblocal
-    command: dynamodb create-table --cli-input-json file://product.json --endpoint-url http://dynamodb:8000
+    command: dynamodb create-table --cli-input-json file://product_index.json --endpoint-url http://dynamodb:8000
     volumes:
       - ./schema:/home/dynamodblocal
     environment:
