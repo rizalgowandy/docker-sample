@@ -1,0 +1,23 @@
+version: "3"
+services:
+  influxdb:
+    image: influxdb:2.0.9
+    container_name: app-influxdb
+    environment:
+      - INFLUXDB_DB=telegraf
+      - INFLUXDB_USER=unicorn_user
+      - INFLUXDB_USER_PASSWORD=magical_password
+      - INFLUXDB_ADMIN_ENABLED=true
+      - INFLUXDB_ADMIN_USER=unicorn_user
+      - INFLUXDB_ADMIN_PASSWORD=magical_password
+    volumes:
+      - app_influxdb:/var/lib/influxdb
+    ports:
+      - "8086:8086"
+      - "8082:8082"
+      - "8089:8089/udp"
+    restart: unless-stopped
+
+volumes:
+  app_influxdb:
+    driver: local
