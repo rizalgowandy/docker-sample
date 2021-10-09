@@ -8,8 +8,12 @@ Database with built-in migration and seeding.
 
 - [Amazon DynamoDB](https://aws.amazon.com/dynamodb/)
 - [Amazon ElastiCache](https://aws.amazon.com/elasticache/)
+- [CockroachDB](https://www.cockroachlabs.com/)
+- [InfluxDB](https://www.influxdata.com/)
 - [PostgreSQL](https://www.postgresql.org/)
 - [Redis](https://redis.io/)
+- [ScyllaDB](https://www.scylladb.com/)
+- [YugabyteDB](https://www.yugabyte.com/)
 
 ### Messaging System
 
