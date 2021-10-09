@@ -14,6 +14,7 @@ services:
       - "7000:7000"
     environment:
       SERVICE_7000_NAME: yb-master
+    restart: unless-stopped
 
   yb-tserver:
     image: yugabytedb/yugabyte:2.6.1.1-b1
@@ -36,6 +37,7 @@ services:
       SERVICE_9000_NAME: yb-tserver
     depends_on:
       - yb-master
+    restart: unless-stopped
 
 volumes:
   yb-master-data-1:

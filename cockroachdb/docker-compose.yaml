@@ -1,0 +1,16 @@
+version: '3'
+services:
+  crdb:
+    image: cockroachdb/cockroach:v21.1.10
+    container_name: app-crdb
+    ports:
+      - "26257:26257"
+      - "8080:8080"
+    command: start-single-node --insecure --accept-sql-without-tls
+    volumes:
+      - app_crdb/cockroach/cockroach-data
+    restart: unless-stopped
+
+volumes:
+  app_crdb:
+    driver: local
